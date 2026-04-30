@@ -10,7 +10,7 @@
 - **Open-source 3D printed underactuated robotic gripper by ALARIS Lab (https://www.alaris.kz/research/open-source-3d-printed-underactuated-robotic-gripper/)**
   - **IR Receiver and Remote**
   - **3D Printer and associated assembly hardware**
-  - **9V battery and Benchrip Power Supply**
+  - **9V battery and Benchtop Power Supply**
   - **Continuous Rotation Servo - FeeTech FS5103R**
 - **UR Polyscope Pendant**
 - **Wired ethernet cord and adapter**
