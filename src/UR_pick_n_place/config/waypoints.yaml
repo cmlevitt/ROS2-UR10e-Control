@@ -1,0 +1,66 @@
+waypoints:
+  home:
+    position: {x: 0.686, y: -0.156, z: 0.877}
+    orientation: {x: 0.688, y: 0.724, z: -0.044, w: -0.008}  #forward, facing out between tanks
+
+    # - Translation: [0.686, -0.156, 0.877]
+    # - Rotation: in Quaternion (xyzw) [0.688, 0.724, -0.044, -0.008]
+    # - Rotation: in RPY (radian) [-3.066, 0.050, 1.624]
+    # - Rotation: in RPY (degree) [-175.680, 2.849, 93.049]
+
+  above_fluidized_bed:
+    position: {x: 0.218, y: -0.633, z: 1.013}
+    orientation: {x: 0.953, y: 0.300, z: -0.035, w: -0.028}
+
+    # - Translation: [0.218, -0.633, 1.013]
+    # - Rotation: in Quaternion (xyzw) [0.953, 0.300, -0.035, -0.028]
+    # - Rotation: in RPY (radian) [-3.066, 0.050, 0.612]
+    # - Rotation: in RPY (degree) [-175.681, 2.856, 35.081]
+
+  dip_into_bed:
+    position: {x: 0.241, y: -0.703, z: 0.588}
+    orientation: {x: 0.953, y: 0.300, z: -0.035, w: -0.029}
+
+    # - Translation: [0.241, -0.703, 0.588]
+    # - Rotation: in Quaternion (xyzw) [0.953, 0.300, -0.035, -0.029]
+    # - Rotation: in RPY (radian) [-3.066, 0.050, 0.612]
+    # - Rotation: in RPY (degree) [-175.670, 2.851, 35.081]
+
+  above_tank:
+    position: {x: 0.115, y: 0.688, z: 0.809}
+    orientation: {x: -0.052, y: 0.998, z: -0.036, w: 0.027}
+
+    # Translation: [0.115, 0.688, 0.809]
+    # Rotation: in Quaternion (xyzw) [-0.052, 0.998, -0.036, 0.027]
+    # Rotation: in RPY (radian) [-3.066, 0.050, -3.035]
+    # Rotation: in RPY (degree) [-175.670, 2.840, -173.888]
+
+  dip_into_tank:
+    position: {x: 0.130, y: 0.669, z: 0.536}
+    orientation: {x: -0.052, y: 0.998, z: -0.036, w: 0.027}
+
+    # - Translation: [0.130, 0.669, 0.536]
+    # - Rotation: in Quaternion (xyzw) [-0.052, 0.998, -0.036, 0.027]
+    # - Rotation: in RPY (radian) [-3.066, 0.050, -3.035]
+    # - Rotation: in RPY (degree) [-175.668, 2.845, -173.880]
+
+
+sequence:
+  - home
+  - above_fluidized_bed
+  - dip_into_bed
+  - above_fluidized_bed   # retract before crossing
+  - home
+  - above_tank
+  - dip_into_tank
+  - above_tank             # retract before going home
+  - home
+
+settings:
+  planning_frame: "base_link"
+  end_effector_link: "tool0"
+  velocity_scaling: 0.05
+  acceleration_scaling: 0.05
+  cartesian_eef_step: 0.005     # 5mm interpolation for Cartesian segments
+  cartesian_jump_threshold: 0.0  # 0.0 disables jump check (use carefully)
+  dip_dwell_seconds: 3.0         # pause at bottom of each dip

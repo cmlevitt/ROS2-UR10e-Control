@@ -1,0 +1,18 @@
+# ROS build artifacts
+build/
+devel/
+install/
+logs/
+.catkin_workspace
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
